@@ -26,7 +26,11 @@ function handleCEP(){
         localStorage.setItem("escola", escola);
         localStorage.setItem("materia", materia);
 
-        window.location.href = './notas.html';
+        function delay() {
+            window.location.href = './notas.html';
+        };
+
+        setTimeout(delay, 3000)
     })
     .catch(() => {
         retorno.innerHTML = "CEP inválido!";

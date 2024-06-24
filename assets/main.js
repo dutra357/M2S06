@@ -4,17 +4,40 @@ let serie = localStorage.getItem('serie');
 let escola = localStorage.getItem('escola');
 let materia = localStorage.getItem('materia');
 
+//Linha inicial solicitada pelo exercício
+function start() {
+  let arrayInicial = [9.00, 8.55, 10.00, 7.88]
+  let mediaInicial = fazerMedia(arrayInicial)
+
+  let cursoInicial = {
+    materia: "Matemática",
+    notas: arrayInicial,
+    media, mediaInicial
+  }
+
+  mediasGerais.push(cursoInicial.media);
+
+  criarLinha(cursoInicial);
+}
+
+//Array de objetos - notas
+let arrayNotas = []
+
+
+
+
+
 
 function novaLinha() {
   let curso = pegarMateriaEnotas();
   criarLinha(curso);
 }
 
-function fazerMedia (notas) {
+function fazerMedia(notas) {
   let soma = 0;
 
   for (let i = 0; i < notas.length; i++) {
-      soma += notas[i];
+    soma += notas[i];
   }
 
   return soma / notas.length;
@@ -28,17 +51,17 @@ function pegarMateriaEnotas() {
   let arrayNotas = [];
 
   while (controlador <= 4) {
-      let notaEscolhida = prompt(controlador + "° nota");
+    let notaEscolhida = prompt(controlador + "° nota");
 
-      notaEscolhida = Number(trocarVirgulaPorPonto(notaEscolhida));
+    notaEscolhida = Number(trocarVirgulaPorPonto(notaEscolhida));
 
-      if (isNaN(notaEscolhida)) {
-        alert("Você não inseriu um valor númerio para a nota. Por favor, insira novamente uma matérias e suas notas.");
-        break;
-      } else {
-          arrayNotas.push(notaEscolhida);
-          controlador++;
-      }      
+    if (isNaN(notaEscolhida)) {
+      alert("Você não inseriu um valor númerio para a nota. Por favor, insira novamente uma matérias e suas notas.");
+      break;
+    } else {
+      arrayNotas.push(notaEscolhida);
+      controlador++;
+    }
   }
 
   if (arrayNotas.length === 4) {
@@ -50,11 +73,11 @@ function pegarMateriaEnotas() {
     };
 
     mediasGerais.push(curso.media);
-    
+
     return curso;
   } else {
     return null;
-  }   
+  }
 }
 
 function trocarVirgulaPorPonto(valorNota) {
@@ -87,7 +110,7 @@ function criarLinha(curso) {
 
 
 function calcMediaGeral(arrayMedias) {
-  let media = arrayMedias.reduce(function(total, nota) {
+  let media = arrayMedias.reduce(function (total, nota) {
     return total + nota;
   }, 0)
   return media / arrayMedias.length;
