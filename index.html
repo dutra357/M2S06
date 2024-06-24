@@ -8,62 +8,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style2.css">
     <title>M2S06 - Exercício</title>
 
-    <style>
-        body {
-            background-color: rgb(67, 129, 180);
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 20px;
-        }
-
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        a:hover {
-            color: aliceblue;
-        }
-
-        .card-body {
-            background-color: rgb(67, 129, 180);
-        }
-
-        .navbar-brand {
-            margin-top: 5px;
-            height: inherit;
-        }
-
-        article {
-            text-align: justify;
-            display: flexbox;
-        }
-
-        h3 {
-            color: aliceblue;
-        }
-
-        #contact {
-            border: 1px solid aliceblue;
-        }
-
-        textarea {
-            height: 146px;
-        }
-
-        .sec-div {
-            border: 1px solid aliceblue;
-        }
-
-        .top-menu {
-            border-bottom: 1px solid aliceblue;
-            border-left: 1px solid aliceblue;
-        }
-        .form-label {
-            font-size: 15px;
-        }
-    </style>
 </head>
 
 
@@ -72,7 +19,8 @@
     <nav class="navbar bg-light navbar-expand-sm py-2 text-bg-light font-monospace fs-5">
         <div class="container">
             <a href="" class="navbar-brand d-flex align-items-center">
-                <a class="text-bg-light" href="index.html"><i class="bi bi-person-fill"></i> Cadastramento de usuários</a>
+                <a class="text-bg-light" href="index.html"><i class="bi bi-person-fill"></i> Cadastramento de
+                    usuários</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#menuNavbar"><span class="navbar-toggler-icon"></span></button>
 
@@ -83,18 +31,13 @@
                 </div>
         </div>
     </nav>
-
     <br>
-
-
-
-
     <div class="container">
 
         <div class="row">
             <div class="col-12 col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
                 <section class="sec-div p-3">
-                    <form class="needs-validation" action="" method="post">
+                    <form id="formulario">
 
                         <h3>Cadastro</h3>
 
@@ -125,30 +68,34 @@
 
                         <div class="">
                             <label class="form-label" for="materia">Cep:</label>
-                            <input class="form-control" type="text" name="cep" id="cep" placeholder="" required>
+                            <input class="form-control" type="text" name="cep" id="cep" required>
                         </div>
                         <br>
 
                         <div class="">
-                            <input class="form-control" type="text" name="rua" id="rua" placeholder="Rua" disabled>
+                            <input class="form-control" type="text" name="rua" id="rua"
+                                disabled>
                         </div>
                         <br>
 
                         <div class="">
-                            <input class="form-control" type="text" name="cidade" id="cidade" placeholder="Cidade" disabled>
+                            <input class="form-control" type="text" name="cidade" id="cidade"
+                                disabled>
                         </div>
                         <br>
 
                         <div class="">
-                            <input class="form-control" type="text" name="estado" id="estado" placeholder="Estado/UF" disabled>
+                            <input class="form-control" type="text" name="estado" id="estado" placeholder=""
+                                disabled>
                         </div>
-
-
 
                         <div class="text-end">
                             <br>
-                            <button class="btn btn-dark" type="submit">Enviar</button>
+                            <a><div id="btn-env" class="botaoEnviar">ENVIAR</div></a>
                         </div>
+                        <br>
+                        <div id="invalid" class=""></div>
+
                     </form>
                 </section>
 
@@ -169,6 +116,7 @@
     </div>
 
 
+    <script src="./assets/cadastro.js"></script>
     <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/bootstrap/js/jquery-3.7.1.min.js"></script>
     <script>

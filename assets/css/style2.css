@@ -1,0 +1,70 @@
+body {
+    background-color: rgb(67, 129, 180);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: aliceblue;
+}
+
+.card-body {
+    background-color: rgb(67, 129, 180);
+}
+
+.navbar-brand {
+    margin-top: 5px;
+    height: inherit;
+}
+
+article {
+    text-align: justify;
+    display: flexbox;
+}
+
+h3 {
+    color: aliceblue;
+}
+
+#contact {
+    border: 1px solid aliceblue;
+}
+
+textarea {
+    height: 146px;
+}
+
+.sec-div {
+    border: 1px solid aliceblue;
+}
+
+.top-menu {
+    border-bottom: 1px solid aliceblue;
+    border-left: 1px solid aliceblue;
+}
+
+.form-label {
+    font-size: 15px;
+}
+
+.botaoEnviar {
+    margin-top: 15px;
+    background-color: black;
+    color: white;
+    padding: 10px 0px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.botaoEnviar:hover {
+    background-color: black;
+    color: rgb(67, 129, 180);
+    transition: 0.5s;
+}
