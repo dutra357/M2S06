@@ -1,3 +1,8 @@
+let nome = localStorage.getItem('nome');
+let idade = localStorage.getItem('idade');
+let serie = localStorage.getItem('serie');
+let escola = localStorage.getItem('escola');
+let materia = localStorage.getItem('materia');
 
 
 function novaLinha() {
