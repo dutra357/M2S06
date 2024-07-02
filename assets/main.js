@@ -25,6 +25,8 @@ function pegarMateriaEnotas() {
   let controlador = 1;
   let arrayNotas = [];
 
+  let arrayLocal = [];
+
   while (controlador <= 4) {
     let notaEscolhida = prompt(controlador + "° nota");
 
@@ -46,8 +48,12 @@ function pegarMateriaEnotas() {
       notas: arrayNotas,
       media: mediaNotas
     };
-
     mediasGerais.push(curso.media);
+
+
+    localStorage.setItem(`${curso.nomeMateria}`, JSON.stringify(curso.arrayNotas));
+    let maior = calculaMaiorMedia();
+    insereMaiorMedia(maior);
 
     return curso;
   } else {
@@ -122,6 +128,19 @@ function caput() {
     <p id="materiaFavorita"><strong>Máteria Favorita: </strong>${temp.materia}</p>`;
 
   infoUser.innerHTML += alunoLinha;
+}
+
+function insereMaiorMedia(maior) {
+  let mediaMaior = document.querySelector('.maior-media');
+  let maiorMedia =`
+  <h2>Maior Média entre as Matérias</h2>
+  <p id="maior-media">A maior média entre as matérias é: ${maior}</p>`;
+
+  mediaMaior.innerHTML = maiorMedia;
+}
+
+function calculaMaiorMedia() {
+
 }
 
 Window.onload = start();
