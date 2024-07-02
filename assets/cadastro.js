@@ -28,7 +28,7 @@ function handleCEP(){
             materia: materia
         }
         
-        localStorage.setItem("usuario", usuario);
+        localStorage.setItem("usuario", JSON.stringify(usuario));
 
         function delay() {
             window.location.href = './notas.html';

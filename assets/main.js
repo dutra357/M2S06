@@ -1,5 +1,4 @@
-
-
+let temp = JSON.parse(localStorage.getItem('usuario'));
 
 //Array de objetos - notas
 let arrayNotas = []
@@ -113,4 +112,17 @@ function start() {
   criarLinha(cursoInicial);
 }
 
+function caput() {
+  let infoUser = document.querySelector('.info-aluno');
+  let alunoLinha =`
+    <p id="nome"><strong>Nome: </strong>${temp.nome}</p>
+    <p id="idade"><strong>Idade: </strong>${temp.idade}</p>
+    <p id="serie"><strong>Série: </strong>${temp.serie}</p>
+    <p id="escola"><strong>Escola: </strong>${temp.escola}</p>
+    <p id="materiaFavorita"><strong>Máteria Favorita: </strong>${temp.materia}</p>`;
+
+  infoUser.innerHTML += alunoLinha;
+}
+
 Window.onload = start();
+Window.onload = caput();
