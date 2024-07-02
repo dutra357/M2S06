@@ -1,32 +1,8 @@
-let nome = localStorage.getItem('nome');
-let idade = localStorage.getItem('idade');
-let serie = localStorage.getItem('serie');
-let escola = localStorage.getItem('escola');
-let materia = localStorage.getItem('materia');
 
-//Linha inicial solicitada pelo exercício
-function start() {
-  let arrayInicial = [9.00, 8.55, 10.00, 7.88]
-  let mediaInicial = fazerMedia(arrayInicial)
 
-  let cursoInicial = {
-    materia: "Matemática",
-    notas: arrayInicial,
-    media, mediaInicial
-  }
-
-  mediasGerais.push(cursoInicial.media);
-
-  criarLinha(cursoInicial);
-}
 
 //Array de objetos - notas
 let arrayNotas = []
-
-
-
-
-
 
 function novaLinha() {
   let curso = pegarMateriaEnotas();
@@ -120,3 +96,21 @@ function insereMediaGeral(media) {
   let elementoMedia = document.querySelector('#media-geral');
   elementoMedia.innerHTML = `<b>${media.toFixed(1)}</b>`
 }
+
+//Linha inicial solicitada pelo exercício
+function start() {
+  let arrayInicial = [9.00, 8.55, 10.00, 7.88]
+  let mediaInicial = fazerMedia(arrayInicial)
+
+  let cursoInicial = {
+    materia: "Matemática",
+    notas: arrayInicial,
+    media: mediaInicial
+  }
+
+  mediasGerais.push(cursoInicial.media);
+
+  criarLinha(cursoInicial);
+}
+
+Window.onload = start();

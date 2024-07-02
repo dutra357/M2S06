@@ -20,11 +20,15 @@ function handleCEP(){
         let escola = document.querySelector('#escola').value;
         let materia = document.querySelector('#materia').value;
 
-        localStorage.setItem("nome", nome);
-        localStorage.setItem("idade", idade);
-        localStorage.setItem("serie", serie);
-        localStorage.setItem("escola", escola);
-        localStorage.setItem("materia", materia);
+        let usuario = {
+            nome: nome,
+            idade: idade,
+            serie: serie,
+            escola: escola,
+            materia: materia
+        }
+        
+        localStorage.setItem("usuario", usuario);
 
         function delay() {
             window.location.href = './notas.html';
