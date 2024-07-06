@@ -10,11 +10,9 @@ function novaLinha() {
 
 function fazerMedia(notas) {
   let soma = 0;
-
   for (let i = 0; i < notas.length; i++) {
     soma += notas[i];
   }
-
   return soma / notas.length;
 }
 
@@ -24,9 +22,7 @@ function pegarMateriaEnotas() {
   let nomeMateria = prompt("Qual a matéria?");
   let controlador = 1;
   let arrayNotas = [];
-
-  let arrayLocal = [];
-
+  
   while (controlador <= 4) {
     let notaEscolhida = prompt(controlador + "° nota");
 
@@ -41,18 +37,16 @@ function pegarMateriaEnotas() {
     }
   }
 
-  if (arrayNotas.length === 4) {
+  if (arrayNotas.length == 4) {
     let mediaNotas = fazerMedia(arrayNotas);
     let curso = {
       materia: nomeMateria,
       notas: arrayNotas,
       media: mediaNotas
     };
+
     mediasGerais.push(curso.media);
-
-
-    localStorage.setItem(`${curso.nomeMateria}`, JSON.stringify(curso.arrayNotas));
-    let maior = calculaMaiorMedia();
+    let maior = calculaMaiorMedia(mediasGerais);
     insereMaiorMedia(maior);
 
     return curso;
@@ -130,17 +124,23 @@ function caput() {
   infoUser.innerHTML += alunoLinha;
 }
 
-function insereMaiorMedia(maior) {
-  let mediaMaior = document.querySelector('.maior-media');
-  let maiorMedia =`
-  <h2>Maior Média entre as Matérias</h2>
-  <p id="maior-media">A maior média entre as matérias é: ${maior}</p>`;
-
-  mediaMaior.innerHTML = maiorMedia;
+function calculaMaiorMedia(array) {
+  let maior = array[0];
+  array.forEach(element => {
+    if (element >= maior) {
+      maior = element;
+    }
+  });
+  return maior;
 }
 
-function calculaMaiorMedia() {
+function insereMaiorMedia(maior) {
+  let mediaMaior = document.querySelector('.box-maior-media');
+  let maiorMedia =`
+  <h2>Maior Média entre as Matérias</h2>
+  <p id="maior-media">A maior média entre as matérias é: <b>${maior}</b></p>`;
 
+  mediaMaior.innerHTML = maiorMedia;
 }
 
 Window.onload = start();
