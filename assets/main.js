@@ -22,7 +22,7 @@ function pegarMateriaEnotas() {
   let nomeMateria = prompt("Qual a matéria?");
   let controlador = 1;
   let arrayNotas = [];
-  
+
   while (controlador <= 4) {
     let notaEscolhida = prompt(controlador + "° nota");
 
@@ -108,13 +108,27 @@ function start() {
   }
 
   mediasGerais.push(cursoInicial.media);
-
   criarLinha(cursoInicial);
+
+  let listaAlunos = document.querySelector('#lista-alunos');
+
+  const url = './alunos.json'; // Substitua pela URL da sua API
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(element => {
+        let linha = `<li>${element.nome}</li>`;
+        listaAlunos.innerHTML += linha;
+      });
+    })
+    .catch(error => {
+      console.error('Erro ao buscar dados:', error);
+    });
 }
 
 function caput() {
   let infoUser = document.querySelector('.info-aluno');
-  let alunoLinha =`
+  let alunoLinha = `
     <p id="nome"><strong>Nome: </strong>${temp.nome}</p>
     <p id="idade"><strong>Idade: </strong>${temp.idade}</p>
     <p id="serie"><strong>Série: </strong>${temp.serie}</p>
@@ -136,7 +150,7 @@ function calculaMaiorMedia(array) {
 
 function insereMaiorMedia(maior) {
   let mediaMaior = document.querySelector('.box-maior-media');
-  let maiorMedia =`
+  let maiorMedia = `
   <h2>Maior Média entre as Matérias</h2>
   <p id="maior-media">A maior média entre as matérias é: <b>${maior}</b></p>`;
 
